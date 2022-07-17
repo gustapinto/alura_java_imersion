@@ -1,0 +1,10 @@
+version: "3.6"
+
+services:
+  java:
+    image: eclipse-temurin:17
+    working_dir: /alura_java_imersion
+    tty: true
+    volumes:
+      - ./:/alura_java_imersion:Z
+
