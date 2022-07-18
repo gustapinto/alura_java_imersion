@@ -5,7 +5,7 @@ import java.net.http.HttpResponse;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        var url = "https://imdb-api.com/en/API/Top250Movies/k_slrga62w";
+        var url = "https://alura-imdb-api.herokuapp.com/movies";
         URI uri = URI.create(url); // Cria uma nova URI para uso no client
 
         // Abre um cliente HTTP
