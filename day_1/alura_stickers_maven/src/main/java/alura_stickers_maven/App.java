@@ -1,6 +1,8 @@
 package alura_stickers_maven;
 
+import java.io.FileNotFoundException;
 import java.net.URI;
+import java.net.URL;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse.BodyHandler;
@@ -26,10 +28,23 @@ public class App {
         JsonParser parser = new JsonParser();
         List<Map<String, String>> movies = parser.parse(json);
 
+        // Cria novo gerador de imagens
+        StickerGenerator generator = new StickerGenerator();
+
         // Exibe todos os filmes
         for (Map<String, String> movie : movies) {
-            System.out.println(movie);
-            System.out.println();
+            String title = movie.get("title");
+            String imageUrl = movie.get("image").replace("_V1_UX128_CR0,3,128,176_AL_", "");
+            System.out.println("Generating image for movie " + title);
+
+            try {
+                generator.generate(title, "Topzera", new URL(imageUrl).openStream());
+            } catch (FileNotFoundException e) {
+                System.out.println("Generating image for movie " + title + " failed");
+                continue;
+            }
+
+            System.out.println("Generating image for movie " + title + " success");
         }
     }
 }
