@@ -1,4 +1,4 @@
-package alura_stickers_maven;
+package alura_stickers_maven.parsers;
 
 import java.util.ArrayList;
 import java.util.HashMap;

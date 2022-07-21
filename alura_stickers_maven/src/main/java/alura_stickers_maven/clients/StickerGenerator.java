@@ -1,4 +1,4 @@
-package alura_stickers_maven;
+package alura_stickers_maven.clients;
 
 import java.awt.image.BufferedImage;
 import java.awt.Graphics2D;
